@@ -1,0 +1,17 @@
+<h2>Sealed Envelope</h2>
+
+<p><%= @seal.envelope_name %></p>
+<p><%= @seal.name %></p>
+
+<% if @opening.errors.any? %>
+<ul>
+  <% @opening.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @opening, url: [@seal, :opening], method: :post do |f| %>
+  <%= f.text_field :token, placeholder: :token %>
+  <%= f.submit "Open", disable_with: 'Opening...' %>
+<% end %>

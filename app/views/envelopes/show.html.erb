@@ -1,0 +1,27 @@
+<h2>Envelope</h2>
+
+<p><%= @envelope.name %></p>
+<p><%= @envelope.owner_email %></p>
+<pre><%= @envelope.contents %></pre>
+
+<h3>Seals</h3>
+
+<% if @envelope.seals.present? %>
+  <table>
+    <% @envelope.seals.each do |s| %>
+      <tr>
+        <td><%= s.name %></td>
+        <td><%= s.formatted_token %></td>
+        <td><%= s.sealed ? 'Sealed' : 'Broken' %></td>
+        <td><%= link_to seal_url(s), s %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>No seals</p>
+<% end %>
+
+<%= form_for [@envelope, @envelope.seals.build] do |f| %>
+  <%= f.text_field :name, placeholder: :name %>
+  <%= f.submit "Add Seal", :disable_with => 'Sealing...' %>
+<% end %>

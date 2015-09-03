@@ -1,0 +1,17 @@
+<h2>New Envelope</h2>
+
+<% if @envelope.errors.any? %>
+<ul>
+  <% @envelope.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @envelope do |f| %>
+  <div><%= f.text_field :name, placeholder: :name %></div>
+  <div><%= f.text_field :owner_email, placeholder: :notification_email %></div>
+  <div><%= f.password_field :password, placeholder: :password %></div>
+  <div><%= f.text_area :contents %></div>
+  <div><%= f.submit "Save", disable_with: 'Saving...' %></div>
+<% end %>
