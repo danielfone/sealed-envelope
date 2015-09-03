@@ -25,6 +25,11 @@ class SealsController < ApplicationController
     # is reduced to templating logic. WAY easier to accidentally break this and
     # harder to test since the difference is between a view with the contents and
     # a view without the contents.
+    # Any test that is expect a page NOT to have content is easy to accidentally mess up
+      # i.e. pass while inadvertantly revealing the content
+      # there's an infinite number of scenarios that will pass that test
+      # and exactly one that will fail it
+      # c.f. the solution below, where ONLY if the action 404s will the test pass
     #
     # Instead, we'll redirect them to a subresource (another action on this controller)
     # In this action, we can scope our seal lookup to only be broken seals
