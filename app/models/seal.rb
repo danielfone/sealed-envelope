@@ -6,6 +6,8 @@ class Seal < ActiveRecord::Base
 
   validates_presence_of :name
 
+  after_create :reload # so we've got our UUID
+
   def envelope_name
     envelope.name
   end
