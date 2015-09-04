@@ -6,7 +6,11 @@
 <div class="alert alert-warning" role="alert">
   <p>
     <%= icon_text 'lock' %>
-    Please enter the token for <strong><%= @seal.name %></strong>
+    Please enter the token for <strong><%= @seal.name %></strong>.
+    This will permanently break the seal and notify
+    <strong>
+      <%= @seal.owner_email %>
+    </strong>
   </p>
 </div>
 

@@ -1,14 +1,12 @@
-<h2>Envelope</h2>
+<h1 class="page-header">
+  <%= icon_text 'envelope' %>
+  <%= @envelope.name %>
+</h1>
 
-<div class="row">
-  <div class="col-md-6">
-    <p><%= @envelope.name %></p>
-    <p><%= @envelope.owner_email %></p>
-  </div>
-  <div class="col-md-6">
-    <pre><%= @envelope.contents %></pre>
-    </div>
-</div>
+<p>
+  Notification email: <%= @envelope.owner_email %>
+</p>
+<pre><%= @envelope.contents %></pre>
 
 
 
