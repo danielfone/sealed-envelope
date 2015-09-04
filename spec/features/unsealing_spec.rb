@@ -9,7 +9,7 @@ RSpec.feature 'Unsealing' do
   end
 
   scenario 'An visitor views a seal' do
-    expect(page).to have_content "Test envelope test seal"
+    expect(page).to have_content /Test envelope .* test seal/
   end
 
   scenario 'An visitor unseals an envelope' do
@@ -21,7 +21,7 @@ RSpec.feature 'Unsealing' do
   scenario 'An visitor unsuccessfully attempts to unseal an envelope' do
     fill_in 'Token', with: 'foo'
     click_on 'Open'
-    expect(page).to have_content 'Token is invalid'
+    expect(page).to have_content 'Tokenis invalid'
   end
 
 end

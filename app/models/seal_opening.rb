@@ -12,7 +12,7 @@ class SealOpening
 
     Seal.transaction do
       seal.update_attributes! sealed: false, opened_at: Time.now
-      #SealMailer.opening_email(seal).deliver_later
+      SealMailer.opening_email(seal).deliver_later
     end
   end
 
