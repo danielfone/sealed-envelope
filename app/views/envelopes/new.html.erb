@@ -9,9 +9,21 @@
 <% end %>
 
 <%= form_for @envelope do |f| %>
-  <div><%= f.text_field :name, placeholder: :name %></div>
-  <div><%= f.text_field :owner_email, placeholder: :notification_email %></div>
-  <div><%= f.password_field :password, placeholder: :password %></div>
-  <div><%= f.text_area :contents %></div>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: :name %>
+  </div>
+  <div>
+    <%= f.label :owner_email %>
+    <%= f.text_field :owner_email, placeholder: :notification_email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: :password %>
+  </div>
+  <div>
+    <%= f.label :contents %>
+    <%= f.text_area :contents %>
+  </div>
   <div><%= f.submit "Save", disable_with: 'Saving...' %></div>
 <% end %>
