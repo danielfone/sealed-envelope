@@ -40,6 +40,7 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
