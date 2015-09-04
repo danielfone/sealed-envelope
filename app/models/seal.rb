@@ -12,6 +12,10 @@ class Seal < ActiveRecord::Base
     envelope.name
   end
 
+  def owner_email
+    envelope.owner_email
+  end
+
   def formatted_token
     token.scan(/.{1,4}/).join(' ')
   end

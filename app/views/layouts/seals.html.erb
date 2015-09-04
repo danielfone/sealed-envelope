@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SealedEnvelope</title>
+  <title>Sealed Envelope</title>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <!-- Optional theme -->
@@ -11,9 +11,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
-<body>
+<body class="seal-page">
   <div class="container">
-  <%= yield %>
+    <div class="envelope panel">
+    <%= yield %>
+    </div>
   </div>
 
 <%= javascript_include_tag 'application' %>

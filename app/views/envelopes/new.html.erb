@@ -1,29 +1,16 @@
 <h2>New Envelope</h2>
 
-<% if @envelope.errors.any? %>
-<ul>
-  <% @envelope.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
-
-<%= form_for @envelope do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name, placeholder: :name %>
+<%= bootstrap_form_for @envelope do |f| %>
+<%= f.alert_message "Please fix the errors below." %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.text_field :name, placeholder: :name %>
+      <%= f.text_field :owner_email, placeholder: :notification_email %>
+      <%= f.password_field :password, placeholder: :password %>
+    </div>
+    <div class="col-md-6">
+      <%= f.text_area :contents, rows: 20 %>
+    </div>
   </div>
-  <div>
-    <%= f.label :owner_email %>
-    <%= f.text_field :owner_email, placeholder: :notification_email %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password, placeholder: :password %>
-  </div>
-  <div>
-    <%= f.label :contents %>
-    <%= f.text_area :contents %>
-  </div>
-  <div><%= f.submit "Save", disable_with: 'Saving...' %></div>
+  <%= f.primary "Save", disable_with: 'Saving...' %>
 <% end %>

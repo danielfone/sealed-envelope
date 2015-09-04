@@ -1,7 +1,15 @@
-<h2>Unsealed Envelope</h2>
+<h1>
+  <%= icon_text 'envelope' %>
+  <%= @seal.envelope_name %>
+</h1>
 
-<p><%= @seal.envelope_name %></p>
-<p><%= @seal.name %></p>
+<div class="alert alert-success" role="alert">
+  <p>
+    <%= icon_text 'ok' %>
+    The seal <strong><%= @seal.name %></strong> has been broken and <strong><%= @seal.owner_email %></strong> has been notified.
+  </p>
+</div>
+
 
 <pre>
   <%= @seal.contents %>

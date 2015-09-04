@@ -1,17 +1,16 @@
-<h2>Sealed Envelope</h2>
+<h1>
+  <%= icon_text 'envelope' %>
+  <%= @seal.envelope_name %>
+</h1>
 
-<p><%= @seal.envelope_name %></p>
-<p><%= @seal.name %></p>
+<div class="alert alert-warning" role="alert">
+  <p>
+    <%= icon_text 'lock' %>
+    Please enter the token for <strong><%= @seal.name %></strong>
+  </p>
+</div>
 
-<% if @opening.errors.any? %>
-<ul>
-  <% @opening.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
-
-<%= form_for @opening, url: [@seal, :opening], method: :post do |f| %>
-  <%= f.text_field :token, placeholder: :token %>
+<%= bootstrap_form_for @opening, url: [@seal, :opening], method: :post, layout: :inline do |f| %>
+  <%= f.text_field :token, placeholder: :token, hide_label: true %>
   <%= f.submit "Open", disable_with: 'Opening...' %>
 <% end %>

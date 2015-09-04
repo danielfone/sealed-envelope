@@ -1,17 +1,25 @@
 <h2>Envelope</h2>
 
-<p><%= @envelope.name %></p>
-<p><%= @envelope.owner_email %></p>
-<pre><%= @envelope.contents %></pre>
+<div class="row">
+  <div class="col-md-6">
+    <p><%= @envelope.name %></p>
+    <p><%= @envelope.owner_email %></p>
+  </div>
+  <div class="col-md-6">
+    <pre><%= @envelope.contents %></pre>
+    </div>
+</div>
+
+
 
 <h3>Seals</h3>
 
 <% if @envelope.seals.present? %>
-  <table>
+  <table class="table">
     <% @envelope.seals.each do |s| %>
       <tr>
         <td><%= s.name %></td>
-        <td><%= s.formatted_token %></td>
+        <td><code><%= s.formatted_token %></code></td>
         <td><%= s.sealed ? 'Sealed' : 'Broken' %></td>
         <td><%= link_to seal_url(s), s %></td>
       </tr>
@@ -21,7 +29,8 @@
   <p>No seals</p>
 <% end %>
 
-<%= form_for [@envelope, @envelope.seals.build] do |f| %>
-  <%= f.text_field :name, placeholder: :name %>
+<%= bootstrap_form_for [@envelope, @envelope.seals.build], layout: :inline do |f| %>
+  <%= f.text_field :name, placeholder: :name, hide_label: true %>
   <%= f.submit "Add Seal", :disable_with => 'Sealing...' %>
 <% end %>
+
