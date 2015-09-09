@@ -21,3 +21,28 @@
 
 en:
   hello: "Hello world"
+  page_title: 'Sealed Envelope'
+  fix_errors: "Please fix the errors below"
+  envelopes:
+    show:
+      no_seals: "No seals yet"
+    new:
+      title: "New Envelope"
+  seal:
+    sealed: 'Sealed'
+    broken: 'Broken'
+  seals:
+    none_found: 'No seals'
+    contents:
+      broken_html: >
+        The seal <strong>%{seal_name}</strong> has been broken
+        and <strong>%{notification_email}</strong> has been notified.
+    show:
+      prompt_html: >
+        Please enter the token for <strong>%{seal_name}</strong>.
+        This will permanently break the seal and notify
+        <strong>%{notification_email}</strong>.
+  helpers:
+    submit:
+        seal_opening:
+          create: "Open"

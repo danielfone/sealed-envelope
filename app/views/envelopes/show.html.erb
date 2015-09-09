@@ -3,14 +3,15 @@
   <%= @envelope.name %>
 </h1>
 
-<p>
-  Notification email: <%= @envelope.owner_email %>
-</p>
+<dl>
+  <dt><%= Envelope.human_attribute_name :owner_email %></dt>
+  <dd><%= @envelope.owner_email %></dd>
+</dl>
 <pre><%= @envelope.contents %></pre>
 
-
-
-<h3>Seals</h3>
+<h3>
+  <%= Seal.model_name.name.pluralize %>
+</h3>
 
 <% if @envelope.seals.present? %>
   <table class="table">
@@ -18,17 +19,17 @@
       <tr>
         <td><%= s.name %></td>
         <td><code><%= s.formatted_token %></code></td>
-        <td><%= s.sealed ? 'Sealed' : 'Broken' %></td>
+        <td><%= t s.sealed ? 'seal.sealed' : 'seal.broken' %></td>
         <td><%= link_to seal_url(s), s %></td>
       </tr>
     <% end %>
   </table>
 <% else %>
-  <p>No seals</p>
+  <p><%= t '.no_seals' %></p>
 <% end %>
 
 <%= bootstrap_form_for [@envelope, @envelope.seals.build], layout: :inline do |f| %>
   <%= f.text_field :name, placeholder: :name, hide_label: true %>
-  <%= f.submit "Add Seal", :disable_with => 'Sealing...' %>
+  <%= f.submit class: 'btn btn-primary', disable_with: :sealing %>
 <% end %>
 

@@ -21,7 +21,7 @@ RSpec.feature 'Unsealing' do
   scenario 'An visitor unsuccessfully attempts to unseal an envelope' do
     fill_in 'Token', with: 'foo'
     click_on 'Open'
-    expect(page).to have_content 'Tokenis invalid'
+    expect(page).to have_content 'is invalid'
   end
 
 end

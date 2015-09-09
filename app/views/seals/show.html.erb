@@ -6,15 +6,11 @@
 <div class="alert alert-warning" role="alert">
   <p>
     <%= icon_text 'lock' %>
-    Please enter the token for <strong><%= @seal.name %></strong>.
-    This will permanently break the seal and notify
-    <strong>
-      <%= @seal.owner_email %>
-    </strong>
+    <%= t('.prompt_html', seal_name: @seal.name, notification_email: @seal.owner_email) %>
   </p>
 </div>
 
 <%= bootstrap_form_for @opening, url: [@seal, :opening], method: :post, layout: :inline do |f| %>
   <%= f.text_field :token, placeholder: :token, hide_label: true %>
-  <%= f.submit "Open", disable_with: 'Opening...' %>
+  <%= f.submit class: 'btn btn-primary', disable_with: :opening %>
 <% end %>

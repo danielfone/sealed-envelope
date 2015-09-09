@@ -6,7 +6,7 @@
 <div class="alert alert-success" role="alert">
   <p>
     <%= icon_text 'ok' %>
-    The seal <strong><%= @seal.name %></strong> has been broken and <strong><%= @seal.owner_email %></strong> has been notified.
+    <%= t('.broken_html', seal_name: @seal.name, notification_email: @seal.owner_email) %>
   </p>
 </div>
 

@@ -1,7 +1,7 @@
-<h2>New Envelope</h2>
+<h2><%= t '.title' %></h2>
 
 <%= bootstrap_form_for @envelope do |f| %>
-<%= f.alert_message "Please fix the errors below." %>
+  <%= f.alert_message t('fix_errors') %>
   <div class="row">
     <div class="col-md-6">
       <%= f.text_field :name, placeholder: :name %>
@@ -12,5 +12,5 @@
       <%= f.text_area :contents, rows: 20 %>
     </div>
   </div>
-  <%= f.primary "Save", disable_with: 'Saving...' %>
+  <%= f.primary class: 'btn btn-primary', disable_with: :saving %>
 <% end %>
