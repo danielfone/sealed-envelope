@@ -11,6 +11,6 @@
 </div>
 
 <%= bootstrap_form_for @opening, url: [@seal, :opening], method: :post, layout: :inline do |f| %>
-  <%= f.text_field :token, placeholder: :token, hide_label: true %>
+  <%= f.text_field :token, placeholder: true, hide_label: true %>
   <%= f.submit class: 'btn btn-primary', disable_with: :opening %>
 <% end %>

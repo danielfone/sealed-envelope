@@ -46,3 +46,7 @@ en:
     submit:
         seal_opening:
           create: "Open"
+  activerecord:
+    attributes:
+      envelope:
+        owner_email: 'Notification Email'

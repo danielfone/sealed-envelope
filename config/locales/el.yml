@@ -1,0 +1,39 @@
+# Example only
+el:
+  page_title: 'σφραγισμένο φάκελο'
+  fix_errors: "Παρακαλώ διορθώστε τα παρακάτω σφάλματα"
+  envelopes:
+    show:
+      no_seals: "Δεν υπάρχουν ακόμα σφραγίδες"
+    new:
+      title: "Νέα Φάκελος"
+  seal:
+    sealed: σφραγίζεται
+    broken: σπασμένα
+  seals:
+    none_found: 'Δεν σφραγίδες'
+    contents:
+      broken_html: >
+        Η σφραγίδα <strong>%{seal_name}</strong> έχει σπάσει
+        και <strong>%{notification_email}</strong> έχει κοινοποιηθεί.
+    show:
+      prompt_html: >
+        Παρακαλώ εισάγετε τον διακριτικό για <strong>%{seal_name}</strong>.
+        Αυτό θα σπάσει οριστικά τη σφραγίδα και την κοινοποιεί
+        <strong>%{notification_email}</strong>.
+  helpers:
+    submit:
+        seal_opening:
+          create: "Άνοιγμα"
+  activerecord:
+    models:
+      envelope: "Φάκελος"
+      seal: Σφραγίδα
+    attributes:
+      envelope:
+        owner_email: 'Email κοινοποίηση'
+        contents: "Περιεχόμενα"
+  attributes:
+    name: "Όνομα"
+    password: "Κωδικό πρόσβασης"
+    token: Κωδικός

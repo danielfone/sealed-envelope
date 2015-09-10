@@ -10,7 +10,7 @@
 <pre><%= @envelope.contents %></pre>
 
 <h3>
-  <%= Seal.model_name.name.pluralize %>
+  <%= Seal.model_name.human.pluralize %>
 </h3>
 
 <% if @envelope.seals.present? %>
@@ -29,7 +29,7 @@
 <% end %>
 
 <%= bootstrap_form_for [@envelope, @envelope.seals.build], layout: :inline do |f| %>
-  <%= f.text_field :name, placeholder: :name, hide_label: true %>
+  <%= f.text_field :name, placeholder: true, hide_label: true %>
   <%= f.submit class: 'btn btn-primary', disable_with: :sealing %>
 <% end %>
 
