@@ -2,5 +2,4 @@
 
 Rails.application.config.session_store :cookie_store, {
   key: '_sealed-envelope_session',
-  expire_after: 1.hour,
 }
