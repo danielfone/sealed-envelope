@@ -10,6 +10,12 @@ class SealsController < ApplicationController
     respond_with @envelope
   end
 
+  def destroy
+    @seal = Seal.find_by! uuid: params[:id]
+    @seal.destroy
+    respond_with @seal.envelope
+  end
+
   def opening
     @seal = Seal.find_by! uuid: params[:seal_id]
     @opening = @seal.build_opening params[:seal_opening]

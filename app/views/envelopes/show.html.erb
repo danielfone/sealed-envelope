@@ -21,6 +21,9 @@
         <td><code><%= s.formatted_token %></code></td>
         <td><%= t s.sealed ? 'seal.sealed' : 'seal.broken' %></td>
         <td><%= link_to seal_url(s), s %></td>
+        <td>
+          <%= button_to t('delete'), s, method: :delete, class: 'btn btn-danger btn-xs' %>
+        </td>
       </tr>
     <% end %>
   </table>

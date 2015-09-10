@@ -22,6 +22,7 @@
 en:
   page_title: Sealed Envelope
   fix_errors: Please fix the errors below
+  delete: 'Delete'
   seal:
     sealed: Sealed
     broken: Broken
