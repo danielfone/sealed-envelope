@@ -23,6 +23,10 @@ private
     session[:envelope_uuid] = envelope.uuid if envelope
   end
 
+  def revoke_authorization
+    session[:envelope_uuid] = nil
+  end
+
   def envelope_authorized?(envelope)
     session[:envelope_uuid] == envelope.uuid
   end

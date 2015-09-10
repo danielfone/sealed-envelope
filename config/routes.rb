@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :envelopes, only: [:new, :create, :show] do
     resources :seals, only: [:create, :destroy]
-    resource :session, only: [:new, :create]
+    resource :session, only: [:new, :create, :destroy]
   end
 
   resources :seals, only: :show do

@@ -33,6 +33,7 @@ en:
   envelopes:
     show:
       no_seals: No seals yet
+      lock: Lock
     new:
       title: New Envelope
 

@@ -7,7 +7,7 @@ RSpec.feature 'Seal deletion' do
   background do
     visit url_for envelope
     fill_in 'Password', with: 'password'
-    click_on "Authorize"
+    click_on "Unlock"
   end
 
   scenario 'An envelope owner deletes a seal' do

@@ -1,6 +1,7 @@
 <h1 class="page-header">
   <%= icon_text 'envelope' %>
   <%= @envelope.name %>
+  <%= link_to icon_text('eye-close', t('.lock')), [@envelope, :session], method: :delete, class: 'btn btn-default btn-xs' %>
 </h1>
 
 <dl>

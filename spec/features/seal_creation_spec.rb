@@ -6,7 +6,7 @@ RSpec.feature 'Seal creation' do
   background do
     visit url_for envelope
     fill_in 'Password', with: 'password'
-    click_on "Authorize"
+    click_on "Unlock"
   end
 
   scenario 'An envelope owner adds a seal' do

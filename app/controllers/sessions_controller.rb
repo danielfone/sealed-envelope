@@ -10,4 +10,9 @@ class SessionsController < ApplicationController
     respond_with @session, location: envelope_path(@session.envelope_uuid)
   end
 
+  def destroy
+    revoke_authorization
+    redirect_to envelope_path(params[:envelope_id])
+  end
+
 end

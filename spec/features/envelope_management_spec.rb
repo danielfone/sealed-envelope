@@ -5,10 +5,10 @@ RSpec.feature 'Envelope management' do
 
   scenario "A visitor updates an existing envelope" do
     visit url_for envelope
-    expect(page).to have_content "Access denied"
+    expect(page).to have_content "is locked"
 
     fill_in 'Password', with: 'password'
-    click_on 'Authorize'
+    click_on 'Unlock'
     expect(page).to have_content "FOO CONTENT"
     pending
     fill_in "Content", with: 'UPDATED CONTENT'
