@@ -4,36 +4,33 @@
   <%= link_to icon_text('eye-close', t('.lock')), [@envelope, :session], method: :delete, class: 'btn btn-default btn-xs' %>
 </h1>
 
-<dl>
-  <dt><%= Envelope.human_attribute_name :owner_email %></dt>
-  <dd><%= @envelope.owner_email %></dd>
-</dl>
-<pre><%= @envelope.contents %></pre>
-
-<h3>
-  <%= Seal.model_name.human.pluralize %>
-</h3>
-
-<% if @envelope.seals.present? %>
-  <table class="table">
-    <% @envelope.seals.each do |s| %>
-      <tr>
-        <td><%= s.name %></td>
-        <td><code><%= s.formatted_token %></code></td>
-        <td><%= t s.sealed ? 'seal.sealed' : 'seal.broken' %></td>
-        <td><%= link_to seal_url(s), s %></td>
-        <td>
-          <%= button_to t('delete'), [@envelope, s], method: :delete, class: 'btn btn-danger btn-xs' %>
-        </td>
-      </tr>
+<%= render 'flash' if flash.any? %>
+<div class="row">
+  <div class="col-md-6">
+    <%= render 'envelopes/form', envelope: @envelope %>
+  </div>
+  <div class="col-md-6">
+    <% if @envelope.seals.present? %>
+      <table class="table">
+        <% @envelope.seals.each do |s| %>
+          <tr>
+            <td><%= link_to s.name, s %></td>
+            <td><code><%= s.formatted_token %></code></td>
+            <td><%= t s.sealed ? 'seal.sealed' : 'seal.broken' %></td>
+            <td><%= text_field_tag '', seal_url(s), class: 'form-control input-sm' %></td>
+            <td>
+              <%= button_to t('delete'), [@envelope, s], method: :delete, class: 'btn btn-danger btn-xs' %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <p><%= t '.no_seals' %></p>
     <% end %>
-  </table>
-<% else %>
-  <p><%= t '.no_seals' %></p>
-<% end %>
 
-<%= bootstrap_form_for [@envelope, @envelope.seals.build], layout: :inline do |f| %>
-  <%= f.text_field :name, placeholder: true, hide_label: true %>
-  <%= f.submit class: 'btn btn-primary', disable_with: :sealing %>
-<% end %>
-
+    <%= bootstrap_form_for [@envelope, @envelope.seals.build], layout: :inline do |f| %>
+      <%= f.text_field :name, placeholder: true, hide_label: true %>
+      <%= f.submit class: 'btn btn-primary', disable_with: :sealing %>
+    <% end %>
+  </div>
+</div>

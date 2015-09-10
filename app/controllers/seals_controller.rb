@@ -6,14 +6,14 @@ class SealsController < ApplicationController
   end
 
   def create
-    envelope.seals.create params.require(:seal).permit :name
-    respond_with @envelope
+    @seal = envelope.seals.create params.require(:seal).permit :name
+    respond_with @seal, location: @seal.envelope
   end
 
   def destroy
     @seal = envelope.seals.find_by! uuid: params[:id]
     @seal.destroy
-    respond_with envelope
+    respond_with @seal, location: @seal.envelope
   end
 
   def opening

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'envelopes#new'
 
-  resources :envelopes, only: [:new, :create, :show] do
+  resources :envelopes, only: [:new, :create, :show, :update] do
     resources :seals, only: [:create, :destroy]
     resource :session, only: [:new, :create, :destroy]
   end

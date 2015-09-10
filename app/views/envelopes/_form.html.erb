@@ -1,0 +1,8 @@
+<%= bootstrap_form_for envelope do |f| %>
+  <%= f.alert_message t('fix_errors') %>
+  <%= f.text_field :name %>
+  <%= f.text_field :owner_email %>
+  <%= f.password_field :password %>
+  <%= f.text_area :contents, rows: 10 %>
+  <%= f.submit class: 'btn btn-primary', disable_with: :saving %>
+<% end %>

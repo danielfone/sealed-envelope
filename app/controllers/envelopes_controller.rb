@@ -14,6 +14,12 @@ class EnvelopesController < ApplicationController
     respond_with @envelope
   end
 
+  def update
+    @envelope = authorize_envelope params[:id]
+    @envelope.update_attributes envelope_params
+    respond_with @envelope, action: :show
+  end
+
 private
 
   def envelope_params

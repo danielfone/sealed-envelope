@@ -9,8 +9,7 @@ RSpec.feature 'Envelope creation' do
     fill_in 'Content', with: 'Test content'
     click_on 'Create Envelope'
     expect(page).to have_content "Test envelope"
-    expect(page).to have_content "test@example.com"
-    expect(page).to have_content "Test content"
+    expect(page).to have_content "Envelope was successfully created"
   end
   scenario 'A visitor creates an invalid envelope' do
     visit '/'

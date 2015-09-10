@@ -1,4 +1,8 @@
+require "application_responder"
+
 class ApplicationController < ActionController::Base
+  self.responder = ApplicationResponder
+
   include EnvelopeAuthorization
 
   # Prevent CSRF attacks by raising an exception.

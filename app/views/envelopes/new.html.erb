@@ -1,16 +1,10 @@
 <h1 class="page-header"><%= t '.title' %></h1>
 
-<%= bootstrap_form_for @envelope do |f| %>
-  <%= f.alert_message t('fix_errors') %>
-  <div class="row">
-    <div class="col-md-6">
-      <%= f.text_field :name %>
-      <%= f.text_field :owner_email %>
-      <%= f.password_field :password %>
-    </div>
-    <div class="col-md-6">
-      <%= f.text_area :contents, rows: 20 %>
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <%= render 'form', envelope: @envelope %>
   </div>
-  <%= f.submit class: 'btn btn-primary', disable_with: :saving %>
-<% end %>
+  <div class="col-md-6">
+    Blah
+  </div>
+</div>

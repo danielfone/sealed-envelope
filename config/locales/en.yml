@@ -63,6 +63,8 @@ en:
   # ActiveRecord
   activerecord:
     attributes:
+      seal:
+        name: Seal name
       envelope:
        # owner_email: Notification Email
 

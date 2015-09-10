@@ -10,9 +10,8 @@ RSpec.feature 'Envelope management' do
     fill_in 'Password', with: 'password'
     click_on 'Unlock'
     expect(page).to have_content "FOO CONTENT"
-    pending
     fill_in "Content", with: 'UPDATED CONTENT'
-    click_on 'Save'
+    click_on 'Update Envelope'
 
     expect(page).to have_content "UPDATED CONTENT"
   end

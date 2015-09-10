@@ -10,10 +10,10 @@ RSpec.feature 'Seal creation' do
   end
 
   scenario 'An envelope owner adds a seal' do
-    fill_in 'Name', with: 'New Seal'
+    fill_in 'Seal name', with: 'New Seal'
     click_on 'Create Seal'
     expect(page).to have_content /New Seal .{14} Sealed/
-    expect(page).to have_link url_for envelope.seals.first
+    expect(page).to have_link "New Seal"
   end
 
 end

@@ -1,0 +1,9 @@
+<h1>
+  <%= icon_text 'envelope' %>
+  <%= @seal.envelope_name %>
+</h1>
+
+<%= bootstrap_form_for [@seal.envelope, @seal] do |f| %>
+  <%= f.text_field :name, placeholder: true, hide_label: true %>
+  <%= f.submit class: 'btn btn-primary', disable_with: :sealing %>
+<% end %>
