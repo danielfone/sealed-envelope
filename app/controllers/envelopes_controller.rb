@@ -1,7 +1,7 @@
 class EnvelopesController < ApplicationController
 
   def show
-    @envelope = Envelope.find_by! uuid: params[:id]
+    @envelope = authorize_envelope params[:id]
   end
 
   def new
@@ -10,7 +10,7 @@ class EnvelopesController < ApplicationController
 
   def create
     @envelope = Envelope.new
-    @envelope.update_attributes envelope_params
+    @envelope.update_attributes envelope_params and grant_authorization @envelope
     respond_with @envelope
   end
 

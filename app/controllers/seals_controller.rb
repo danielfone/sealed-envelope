@@ -11,9 +11,9 @@ class SealsController < ApplicationController
   end
 
   def destroy
-    @seal = Seal.find_by! uuid: params[:id]
+    @seal = envelope.seals.find_by! uuid: params[:id]
     @seal.destroy
-    respond_with @seal.envelope
+    respond_with envelope
   end
 
   def opening
@@ -58,6 +58,6 @@ class SealsController < ApplicationController
 private
 
   def envelope
-    @envelope ||= Envelope.find_by! uuid: params[:envelope_id]
+    @envelope ||= authorize_envelope params[:envelope_id]
   end
 end

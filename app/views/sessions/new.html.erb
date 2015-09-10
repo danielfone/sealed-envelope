@@ -1,0 +1,16 @@
+<h2><%= t '.title' %></h2>
+
+<div class="alert alert-info">
+  <%= t('envelope.access_denied') %>
+</div>
+
+<%= bootstrap_form_for @session, url: envelope_session_path(@session.envelope_uuid) do |f| %>
+  <%= f.alert_message t('fix_errors') %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.hidden_field :envelope_uuid %>
+      <%= f.password_field :password %>
+    </div>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

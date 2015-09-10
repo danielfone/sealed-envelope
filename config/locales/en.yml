@@ -22,10 +22,12 @@
 en:
   page_title: Sealed Envelope
   fix_errors: Please fix the errors below
-  delete: 'Delete'
+  delete: Delete
   seal:
     sealed: Sealed
     broken: Broken
+  envelope:
+    access_denied: Access denied to envelope
 
   # Views
   envelopes:
@@ -45,17 +47,28 @@ en:
         This will permanently break the seal and notify
         <strong>%{notification_email}</strong>.
 
+  sessions:
+    new:
+      title: Envelope Authorization
+
   # ActionView helpers
   helpers:
     submit:
         seal_opening:
           create: Open
+        session:
+          create: Authorize
 
   # ActiveRecord
   activerecord:
     attributes:
       envelope:
        # owner_email: Notification Email
+
+  activemodel:
+    errors:
+      messages:
+        incorrect: is incorrect
 
   # Mailers
   seal_mailer:

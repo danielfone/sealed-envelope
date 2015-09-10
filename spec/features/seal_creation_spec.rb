@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature 'Seal creation' do
-  let!(:envelope) { create :envelope }
+  let!(:envelope) { create :envelope, password: 'password' }
 
   background do
     visit url_for envelope
+    fill_in 'Password', with: 'password'
+    click_on "Authorize"
   end
 
   scenario 'An envelope owner adds a seal' do
