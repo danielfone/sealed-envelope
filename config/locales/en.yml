@@ -20,19 +20,20 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  page_title: 'Sealed Envelope'
-  fix_errors: "Please fix the errors below"
+  page_title: Sealed Envelope
+  fix_errors: Please fix the errors below
+  seal:
+    sealed: Sealed
+    broken: Broken
+
+  # Views
   envelopes:
     show:
-      no_seals: "No seals yet"
+      no_seals: No seals yet
     new:
-      title: "New Envelope"
-  seal:
-    sealed: 'Sealed'
-    broken: 'Broken'
+      title: New Envelope
+
   seals:
-    none_found: 'No seals'
     contents:
       broken_html: >
         The seal <strong>%{seal_name}</strong> has been broken
@@ -42,11 +43,20 @@ en:
         Please enter the token for <strong>%{seal_name}</strong>.
         This will permanently break the seal and notify
         <strong>%{notification_email}</strong>.
+
+  # ActionView helpers
   helpers:
     submit:
         seal_opening:
-          create: "Open"
+          create: Open
+
+  # ActiveRecord
   activerecord:
     attributes:
       envelope:
-        owner_email: 'Notification Email'
+       # owner_email: Notification Email
+
+  # Mailers
+  seal_mailer:
+    opening_email:
+      subject: The '%{seal_name}' seal was broken on '%{envelope_name}'

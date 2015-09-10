@@ -6,8 +6,10 @@ class SealMailer < ApplicationMailer
   #   en.seal_mailer.opening_email.subject
   #
   def opening_email(seal)
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    subject = default_i18n_subject({
+      seal_name: seal.name,
+      envelope_name: seal.envelope_name,
+    })
+    mail to: seal.notification_email, subject: subject
   end
 end

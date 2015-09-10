@@ -12,7 +12,7 @@ class Seal < ActiveRecord::Base
     envelope.name
   end
 
-  def owner_email
+  def notification_email
     envelope.owner_email
   end
 

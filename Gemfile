@@ -21,6 +21,7 @@ group :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'capybara'
+  gem 'capybara-email'
 end
 
 group :development do
