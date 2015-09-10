@@ -27,7 +27,7 @@ en:
     sealed: Sealed
     broken: Broken
   envelope:
-    access_denied: Access denied to envelope
+    access_denied: This envelope is locked.
 
   # Views
   envelopes:
@@ -57,7 +57,7 @@ en:
         seal_opening:
           create: Open
         session:
-          create: Authorize
+          create: Unlock
 
   # ActiveRecord
   activerecord:
