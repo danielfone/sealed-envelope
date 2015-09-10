@@ -16,15 +16,3 @@ to protect it from prying eyes. If you haven't done this before, a service like 
 To repeat: our fundamental role is to notify you when _authorized_ access occurs
 (which, by definition, means that the correct token was used) regardless of who might posses that token.
 
-## Todo
-
-* [x] Mailer (+ tests!)
-* [x] Remove seal
-* [ ] Edit if owner authenticated
-* [x] I18n
-
-## Production
-
-* [ ] puma
-* [ ] SSL
-

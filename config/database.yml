@@ -17,9 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
 
 development:
   <<: *default
@@ -80,6 +78,4 @@ test:
 #
 production:
   <<: *default
-  database: sealed-envelope_production
-  username: sealed-envelope
-  password: <%= ENV['SEALED-ENVELOPE_DATABASE_PASSWORD'] %>
+  url:  <%= ENV["DATABASE_URL"] %>
